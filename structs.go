@@ -11,6 +11,8 @@ type User struct {
 	birthdate string
 	createdAt time.Time // nested struct 
 }
+
+
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
@@ -25,15 +27,20 @@ func main() {
 	}
 
 	// fmt.Println(firstName, lastName, birthdate)
-	outputUserDetails(&appUser)
+	// outputUserDetails(&appUser)
+
+	appUser.outputUserDetails()
 
 	
 }
-
-func outputUserDetails(u *User){
-	fmt.Print((*u).lastName,u.firstName,u.birthdate,u.createdAt)
-
+//another way 
+func (u User) outputUserDetails(){
+ fmt.Print(u.firstName,u.lastName,u.birthdate,u.createdAt)
 }
+// func outputUserDetails(u *User){
+// 	fmt.Print((*u).lastName,u.firstName,u.birthdate,u.createdAt)
+
+// }
 
 func getUserData(promptText string) string {
 	fmt.Print(promptText)
