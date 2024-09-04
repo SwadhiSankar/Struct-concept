@@ -25,13 +25,13 @@ func main() {
 	}
 
 	// fmt.Println(firstName, lastName, birthdate)
-	outputUserDetails(appUser)
+	outputUserDetails(&appUser)
 
 	
 }
 
-func outputUserDetails(u User){
-	fmt.Print(u.lastName,u.firstName,u.birthdate,u.createdAt)
+func outputUserDetails(u *User){
+	fmt.Print((*u).lastName,u.firstName,u.birthdate,u.createdAt)
 
 }
 
