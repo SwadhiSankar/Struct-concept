@@ -12,7 +12,11 @@ type User struct {
 	createdAt time.Time // nested struct 
 }
 
+func (u *User) clearUserName(){
+	u.firstName =""
+	u.lastName =""
 
+}
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
@@ -30,11 +34,14 @@ func main() {
 	// outputUserDetails(&appUser)
 
 	appUser.outputUserDetails()
+	appUser.clearUserName()
+	fmt.Println("\n After clearing")
+	appUser.outputUserDetails()
 
 	
 }
 //another way 
-func (u User) outputUserDetails(){
+func (u *User) outputUserDetails(){
  fmt.Print(u.firstName,u.lastName,u.birthdate,u.createdAt)
 }
 // func outputUserDetails(u *User){
