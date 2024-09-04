@@ -12,23 +12,34 @@ type User struct {
 	createdAt time.Time // nested struct 
 }
 
+
 func (u *User) clearUserName(){
 	u.firstName =""
 	u.lastName =""
 
+}
+
+func newUser(firstName, lastName, birthDate string) *User{
+	return &User{
+		firstName: firstName,
+		lastName : lastName,
+		birthdate : birthDate,
+		createdAt: time.Now(),
+	}
 }
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-    var appUser User 
-	appUser = User{
-		firstName: userFirstName,
-		lastName: userLastName,
-		birthdate: userBirthdate,
-		createdAt: time.Now(),
-	}
+    var appUser *User 
+	// appUser = User{
+	// 	firstName: userFirstName,
+	// 	lastName: userLastName,
+	// 	birthdate: userBirthdate,
+	// 	createdAt: time.Now(),
+	// }
+	appUser = newUser(userFirstName,userLastName,userBirthdate)
 
 	// fmt.Println(firstName, lastName, birthdate)
 	// outputUserDetails(&appUser)
