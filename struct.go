@@ -20,6 +20,9 @@ func main() {
      return 
   }
 	
+  admin:= user.NewAdmin("email@gmail.com","1123")
+  admin.OutputUserDetails()
+  admin.ClearUserName()
 
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
